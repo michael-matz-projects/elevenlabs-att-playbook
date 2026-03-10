@@ -100,7 +100,7 @@ const personPoints = [
 ];
 
 const companyPoints = [
-  { icon: "📞", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>~1M customer calls/day, 100M+ U.S. customers</strong>, still running on legacy IVR infra — menus, queues, and callbacks with no voice AI layer</> },
+  { icon: "📞", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>~1M customer calls/day, 100M+ U.S. customers</strong>, still running on an IVR Menu, queues, and callbacks with no voice AI layer</> },
   { icon: "🤖", color: "rgba(177,151,252,0.08)", text: <>Current AI investment sits <strong style={{ color: "#f5f5f5" }}>behind the agent</strong> (agent-assist tools), not customer-facing</> },
   { icon: "💡", color: "rgba(99,230,190,0.08)", text: <>ElevenLabs closes this exact gap: <strong style={{ color: "#f5f5f5" }}>handles routine calls</strong> (billing, order tracking, password resets), deflects volume before it hits the queue</> },
   { icon: "📊", color: "rgba(200,255,0,0.08)", text: <>Proof points: <strong style={{ color: "#f5f5f5" }}>EliseAI</strong> (88% calls handled by AI, 66% cost reduction), <strong style={{ color: "#f5f5f5" }}>Everlywell</strong> (replaced IVR, 250% higher conversion for Spanish-speaking members)</> },
@@ -360,12 +360,12 @@ export default function ElevenLabsATTPlaybook() {
                   }} />
                   <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                     {[
-                      { icon: "📡", color: "rgba(255,169,77,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Multi-channel.</strong> Three channels (email, LinkedIn, phone) so no single inbox gets saturated. Each reinforces the others without repeating the same format.</> },
-                      { icon: "📞", color: "rgba(99,230,190,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Cold call at Touch 3.</strong> John has seen your name twice, so you're not fully cold. A call is the only touch that gets a yes or no in real time. Every other channel lets the prospect ignore you.</> },
-                      { icon: "🔄", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>New information every touch.</strong> Gap framing → live pressure-test → competitive urgency (T-Mobile) → third-party proof (EliseAI) → value offer (custom model) → clean exit. No two touches make the same argument.</> },
-                      { icon: "📈", color: "rgba(177,151,252,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Escalates, not repeats.</strong> Moves from awareness to competitive pressure to proof to a direct offer. Each step raises the stakes without restating the pitch.</> },
-                      { icon: "🤝", color: "rgba(77,171,247,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Breakup protects the relationship.</strong> Professional close, door stays open, enterprise logos reinforced one last time.</> },
-                      { icon: "⏱️", color: "rgba(255,107,107,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>12-day compressed timeline.</strong> Heaviest activity in Days 1-3 when name recognition builds fastest. Short enough that Touch 1 is still remembered by Touch 7.</> },
+                      { icon: "📡", color: "rgba(255,169,77,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Multi-channel.</strong> I'm using three channels (email, LinkedIn, phone) so no single inbox gets saturated. Each one reinforces the others without repeating the same format.</> },
+                      { icon: "📞", color: "rgba(99,230,190,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Cold call at Touch 3.</strong> John has seen my name twice. A call is the only touch that gets a yes or no in real time.</> },
+                      { icon: "🔄", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>New information every touch.</strong> I move from gap framing → run analysis → competitive urgency (T-Mobile) → third-party proof (EliseAI) → value offer (custom model) → clean exit. I never make the same argument twice.</> },
+                      { icon: "📈", color: "rgba(177,151,252,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Escalates, not repeats.</strong> I move from awareness to competitive pressure to proof to a direct offer. Each step raises the stakes without restating the pitch.</> },
+                      { icon: "🤝", color: "rgba(77,171,247,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Breakup protects the relationship.</strong> I close professionally, leave the door open, and reinforce enterprise logos one last time.</> },
+                      { icon: "⏱️", color: "rgba(255,107,107,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>12-day compressed timeline.</strong> I front-load the heaviest activity in Days 1-3 when name recognition builds fastest. It's short enough that Touch 1 is still remembered by Touch 7.</> },
                     ].map((d, i) => (
                       <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                         <div style={{
