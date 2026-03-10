@@ -46,7 +46,7 @@ Worth a quick conversation to see if this maps to what AT&T's consumer channels 
     subject: "What T-Mobile just announced",
     body: `John,
 
-T-Mobile just partnered with ElevenLabs to put voice AI directly into their telecom network. Not for internal tooling, but customer-facing.
+T-Mobile just partnered with ElevenLabs to put voice AI directly into their telecom network.
 
 They're building the layer that sits in front of the agent. Early enterprise deployments are seeing 60-88% of routine calls fully automated with 40-66% cost reductions.
 
@@ -68,7 +68,7 @@ I don't know the full picture of what AT&T has in flight, but if the customer in
 
 At the volume AT&T handles across consumer channels, even automating a fraction of routine calls (billing, order tracking, password resets) with voice AI would meaningfully change the cost structure.
 
-I can put together a rough model based on what we're seeing in similar deployments. Would 15 minutes be worth it to pressure-test the numbers?`,
+I can put together a rough model based on what we're seeing in similar deployments. Would 15 minutes be worth it to test the numbers?`,
   },
   {
     day: "Day 12",
@@ -100,7 +100,7 @@ const personPoints = [
 ];
 
 const companyPoints = [
-  { icon: "📞", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>~1M customer calls/day, 100M+ U.S. customers</strong>, still running on an IVR Menu, queues, and callbacks with no voice AI layer</> },
+  { icon: "📞", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>~1M customer calls/day, 100M+ U.S. customers</strong>, still running on an IVR Menu with queues, and callbacks with no voice AI layer</> },
   { icon: "🤖", color: "rgba(177,151,252,0.08)", text: <>Current AI investment sits <strong style={{ color: "#f5f5f5" }}>behind the agent</strong> (agent-assist tools), not customer-facing</> },
   { icon: "💡", color: "rgba(99,230,190,0.08)", text: <>ElevenLabs closes this exact gap: <strong style={{ color: "#f5f5f5" }}>handles routine calls</strong> (billing, order tracking, password resets), deflects volume before it hits the queue</> },
   { icon: "📊", color: "rgba(200,255,0,0.08)", text: <>Proof points: <strong style={{ color: "#f5f5f5" }}>EliseAI</strong> (88% calls handled by AI, 66% cost reduction), <strong style={{ color: "#f5f5f5" }}>Everlywell</strong> (replaced IVR, 250% higher conversion for Spanish-speaking members)</> },
