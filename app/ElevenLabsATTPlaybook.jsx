@@ -264,9 +264,50 @@ export default function ElevenLabsATTPlaybook() {
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
             }}>AT&T</span>
           </h1>
-          <p style={{ fontSize: 15, color: "#aaa", lineHeight: 1.6, maxWidth: 520 }}>
+          <p style={{ fontSize: 15, color: "#aaa", lineHeight: 1.6, maxWidth: 520, marginBottom: 20 }}>
             A strategic, multi-channel approach to engage John C. Miller and position ElevenLabs as the voice AI layer AT&T's customer experience is missing.
           </p>
+          <button
+            onClick={async () => {
+              const html2pdf = (await import("html2pdf.js")).default;
+              const res = await fetch("/print.html");
+              const html = await res.text();
+              const container = document.createElement("div");
+              container.style.cssText = "position:fixed;left:-9999px;top:0;width:800px;";
+              container.innerHTML = html;
+              document.body.appendChild(container);
+              const content = container.querySelector("#pdf-root");
+              const pxWidth = content.scrollWidth;
+              const pxHeight = content.scrollHeight;
+              const scale = 2;
+              const pdfWidth = pxWidth * 0.264583;
+              const pdfHeight = pxHeight * 0.264583;
+              await html2pdf()
+                .set({
+                  margin: 0,
+                  filename: "ElevenLabs-ATT-Playbook.pdf",
+                  image: { type: "jpeg", quality: 0.98 },
+                  html2canvas: { scale, backgroundColor: "#0a0a0a", useCORS: true, width: pxWidth, height: pxHeight, windowWidth: pxWidth },
+                  jsPDF: { unit: "mm", format: [pdfWidth, pdfHeight], orientation: "portrait" },
+                  pagebreak: { mode: [] },
+                })
+                .from(content)
+                .save();
+              document.body.removeChild(container);
+            }}
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              background: "transparent", border: "1px solid #2a2a2a", borderRadius: 10,
+              padding: "8px 18px", cursor: "pointer", fontFamily: "inherit",
+              color: "#888", fontSize: 12, fontWeight: 600, letterSpacing: "0.3px",
+              transition: "all 0.2s ease",
+            }}
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download PDF
+          </button>
         </div>
 
         {/* ── NAV TABS ── */}
