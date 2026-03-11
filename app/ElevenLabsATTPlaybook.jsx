@@ -9,11 +9,11 @@ const steps = [
     subject: "Your AI stack has a blind spot",
     body: `John,
 
-AT&T has made real investments in AI for agent tooling. From the outside though, the customer-facing experience still looks traditional: IVR, queue, callback.
+AT&T has invested heavily in AI for agent tooling — but the customer-facing experience still looks traditional: IVR, queue, callback.
 
-We just launched ElevenAgents for Support, which is purpose-built for this exact problem. Revolut, Klarna, TELUS Digital, and Cars24 are already using it to deploy conversational AI agents across voice, chat, email, and WhatsApp that handle frontline volume, de-escalate issues, and resolve tickets in 70+ languages. Freedom Forever hit 90% higher efficiency on their support interactions.
+We just launched ElevenAgents for Support. Revolut, Klarna, TELUS Digital, and Cars24 are using it to handle frontline volume across voice, chat, and WhatsApp in 70+ languages.
 
-Worth a quick conversation to see if this maps to what AT&T's consumer channels need?`,
+Worth a quick conversation?`,
   },
   {
     day: "Day 2",
@@ -28,10 +28,10 @@ Worth a quick conversation to see if this maps to what AT&T's consumer channels 
     label: "Cold Call",
     subject: "Cold Call Script",
     sections: [
-      { heading: "Opening", content: `"Hi John, this is Michael from ElevenLabs. I know I'm calling cold, do you have 30 seconds?"` },
-      { heading: "Context", content: `"I sent you a note yesterday about a potential gap in AT&T's AI stack. You've invested heavily in agent tooling, but the piece that might still be untouched is what the customer actually experiences when they call in. The IVR, the queue, the callback flow."` },
-      { heading: "Bridge", content: `"We just launched a product called ElevenAgents for Support. Companies like Revolut, Klarna, and TELUS Digital are using it to put AI directly in front of the customer across voice, chat, and WhatsApp. These agents follow your SOPs, handle de-escalation, and hand off to humans with full context when needed."` },
-      { heading: "Ask", content: `"I'm not pitching on this call. I just want to understand whether that customer-facing layer is something your team is actively thinking about, or if it's further down the roadmap."` },
+      { heading: "Opening", content: `"Hi John, this is Michael from ElevenLabs. I know I'm calling cold — do you have 30 seconds?"` },
+      { heading: "Context", content: `"I sent you a note about a gap in AT&T's AI stack. You've invested in agent tooling, but the customer-facing side — IVR, queue, callback — is still untouched."` },
+      { heading: "Bridge", content: `"We just launched ElevenAgents for Support. Revolut, Klarna, and TELUS Digital are using it to put AI directly in front of the customer. It follows your SOPs, handles de-escalation, and hands off to humans with full context."` },
+      { heading: "Ask", content: `"Is that customer-facing layer something your team is actively thinking about, or is it further down the roadmap?"` },
     ],
     objections: [
       { trigger: `"We already have AI initiatives."`, response: `"I'd expect you do. Are any of them changing what the customer hears when they dial in, or are they mostly on the agent side?"` },
@@ -46,9 +46,7 @@ Worth a quick conversation to see if this maps to what AT&T's consumer channels 
     subject: "What T-Mobile just announced",
     body: `John,
 
-T-Mobile just partnered with ElevenLabs to put voice AI directly into their telecom network.
-
-They're building the layer that sits in front of the agent. Early enterprise deployments are seeing 60-88% of routine calls fully automated with 40-66% cost reductions.
+T-Mobile just partnered with ElevenLabs to put voice AI directly into their telecom network. Early enterprise deployments are seeing 60-88% of routine calls fully automated with 40-66% cost reductions.
 
 I don't know the full picture of what AT&T has in flight, but if the customer interaction layer is on the roadmap, this is worth comparing notes on.`,
   },
@@ -85,26 +83,42 @@ Either way, your team's AI-first direction is the right one. The question is jus
   },
 ];
 
+const IconEmail = ({ size = 14, color = "currentColor" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+  </svg>
+);
+const IconLinkedIn = ({ size = 14, color = "currentColor" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} stroke="none">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+  </svg>
+);
+const IconPhone = ({ size = 14, color = "currentColor" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+  </svg>
+);
+
 const typeConfig = {
-  email: { color: "#c8ff00", bg: "rgba(200,255,0,0.08)", border: "rgba(200,255,0,0.18)", label: "Email", icon: "✉" },
-  linkedin: { color: "#4dabf7", bg: "rgba(77,171,247,0.08)", border: "rgba(77,171,247,0.18)", label: "LinkedIn", icon: "in" },
-  phone: { color: "#ffa94d", bg: "rgba(255,169,77,0.08)", border: "rgba(255,169,77,0.18)", label: "Phone", icon: "📞" },
+  email: { color: "#c8ff00", bg: "rgba(200,255,0,0.08)", border: "rgba(200,255,0,0.18)", label: "Email", icon: <IconEmail size={14} color="#0a0a0a" /> },
+  linkedin: { color: "#4dabf7", bg: "rgba(77,171,247,0.08)", border: "rgba(77,171,247,0.18)", label: "LinkedIn", icon: <IconLinkedIn size={14} color="#0a0a0a" /> },
+  phone: { color: "#ffa94d", bg: "rgba(255,169,77,0.08)", border: "rgba(255,169,77,0.18)", label: "Phone", icon: <IconPhone size={14} color="#0a0a0a" /> },
 };
 
 const personPoints = [
-  { icon: "🎯", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>VP of Consumer & Retail Solutions at AT&T</strong>, owns the tech stack for phone, retail, and chat channels (~1M customers/day)</> },
-  { icon: "⚡", color: "rgba(99,230,190,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Senior enough to champion internally</strong>, hands-on enough to make tech decisions for exact deployment channels</> },
-  { icon: "🤝", color: "rgba(177,151,252,0.08)", text: <>Maps to proven buyer profile: <strong style={{ color: "#f5f5f5" }}>mirrors Cisco's SVP of CX Solutions</strong>, who was ElevenLabs' entry point there</> },
-  { icon: "🏆", color: "rgba(255,169,77,0.08)", text: <>Publicly vocal on AI: podcast appearances on <strong style={{ color: "#f5f5f5" }}>AT&T's AI-first 2026 strategy</strong>, Forrester 2025 Customer-Obsessed Leadership Award</> },
-  { icon: "💬", color: "rgba(77,171,247,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Active LinkedIn presence</strong> on AI topics signals receptivity to outreach</> },
+  { color: "rgba(200,255,0,0.08)", accent: "#c8ff00", text: <><strong style={{ color: "#f5f5f5" }}>VP of Consumer & Retail Solutions at AT&T</strong>, owns the tech stack for phone, retail, and chat channels (~1M customers/day)</> },
+  { color: "rgba(99,230,190,0.08)", accent: "#63e6be", text: <><strong style={{ color: "#f5f5f5" }}>Senior enough to champion internally</strong>, hands-on enough to make tech decisions for exact deployment channels</> },
+  { color: "rgba(177,151,252,0.08)", accent: "#b197fc", text: <>Maps to proven buyer profile: <strong style={{ color: "#f5f5f5" }}>mirrors Cisco's SVP of CX Solutions</strong>, who was ElevenLabs' entry point there</> },
+  { color: "rgba(255,169,77,0.08)", accent: "#ffa94d", text: <>Publicly vocal on AI: podcast appearances on <strong style={{ color: "#f5f5f5" }}>AT&T's AI-first 2026 strategy</strong>, Forrester 2025 Customer-Obsessed Leadership Award</> },
+  { color: "rgba(77,171,247,0.08)", accent: "#4dabf7", text: <><strong style={{ color: "#f5f5f5" }}>Active LinkedIn presence</strong> on AI topics signals receptivity to outreach</> },
 ];
 
 const companyPoints = [
-  { icon: "📞", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>~1M customer calls/day, 100M+ U.S. customers</strong>, still running on an IVR Menu with queues, and callbacks with no voice AI layer</> },
-  { icon: "🤖", color: "rgba(177,151,252,0.08)", text: <>Current AI investment sits <strong style={{ color: "#f5f5f5" }}>behind the agent</strong> (agent-assist tools), not customer-facing</> },
-  { icon: "💡", color: "rgba(99,230,190,0.08)", text: <>ElevenLabs closes this exact gap: <strong style={{ color: "#f5f5f5" }}>handles routine calls</strong> (billing, order tracking, password resets), deflects volume before it hits the queue</> },
-  { icon: "📊", color: "rgba(200,255,0,0.08)", text: <>Proof points: <strong style={{ color: "#f5f5f5" }}>EliseAI</strong> (88% calls handled by AI, 66% cost reduction), <strong style={{ color: "#f5f5f5" }}>Everlywell</strong> (replaced IVR, 250% higher conversion for Spanish-speaking members)</> },
-  { icon: "⚠️", color: "rgba(255,107,107,0.08)", text: <>Competitive pressure: <strong style={{ color: "#ff6b6b" }}>T-Mobile has already partnered with ElevenLabs</strong></> },
+  { color: "rgba(200,255,0,0.08)", accent: "#c8ff00", text: <><strong style={{ color: "#f5f5f5" }}>~1M customer calls/day, 100M+ U.S. customers</strong>, still running on an IVR Menu with queues, and callbacks with no voice AI layer</> },
+  { color: "rgba(177,151,252,0.08)", accent: "#b197fc", text: <>Current AI investment sits <strong style={{ color: "#f5f5f5" }}>behind the agent</strong> (agent-assist tools), not customer-facing</> },
+  { color: "rgba(99,230,190,0.08)", accent: "#63e6be", text: <>ElevenLabs closes this exact gap: <strong style={{ color: "#f5f5f5" }}>handles routine calls</strong> (billing, order tracking, password resets), deflects volume before it hits the queue</> },
+  { color: "rgba(200,255,0,0.08)", accent: "#c8ff00", text: <>Proof points: <strong style={{ color: "#f5f5f5" }}>EliseAI</strong> (88% calls handled by AI, 66% cost reduction), <strong style={{ color: "#f5f5f5" }}>Everlywell</strong> (replaced IVR, 250% higher conversion for Spanish-speaking members)</> },
+  { color: "rgba(255,107,107,0.08)", accent: "#ff6b6b", text: <>Competitive pressure: <strong style={{ color: "#ff6b6b" }}>T-Mobile has already partnered with ElevenLabs</strong></> },
 ];
 
 export default function ElevenLabsATTPlaybook() {
@@ -125,15 +139,13 @@ export default function ElevenLabsATTPlaybook() {
   ];
 
   const BulletList = ({ items }) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
       {items.map((d, i) => (
-        <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
-          <div style={{
-            width: 36, height: 36, borderRadius: 10, background: d.color,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 16, flexShrink: 0,
-          }}>{d.icon}</div>
-          <div style={{ fontSize: 14, color: "#aaa", lineHeight: 1.6, paddingTop: 6 }}>{d.text}</div>
+        <div key={i} style={{
+          paddingLeft: 16,
+          borderLeft: `2px solid ${d.accent}`,
+        }}>
+          <div style={{ fontSize: 14, color: "#aaa", lineHeight: 1.6 }}>{d.text}</div>
         </div>
       ))}
     </div>
@@ -360,20 +372,18 @@ export default function ElevenLabsATTPlaybook() {
                   }} />
                   <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                     {[
-                      { icon: "📡", color: "rgba(255,169,77,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Multi-channel.</strong> I'm using three channels (email, LinkedIn, phone) so no single inbox gets saturated. Each one reinforces the others without repeating the same format.</> },
-                      { icon: "📞", color: "rgba(99,230,190,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Cold call at Touch 3.</strong> John has seen my name twice. A call is the only touch that gets a yes or no in real time.</> },
-                      { icon: "🔄", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>New information every touch.</strong> I move from gap framing → run analysis → competitive urgency (T-Mobile) → third-party proof (EliseAI) → value offer (custom model) → clean exit. I never make the same argument twice.</> },
-                      { icon: "📈", color: "rgba(177,151,252,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Escalates, not repeats.</strong> I move from awareness to competitive pressure to proof to a direct offer. Each step raises the stakes without restating the pitch.</> },
-                      { icon: "🤝", color: "rgba(77,171,247,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Breakup protects the relationship.</strong> I close professionally, leave the door open, and reinforce enterprise logos one last time.</> },
-                      { icon: "⏱️", color: "rgba(255,107,107,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>12-day compressed timeline.</strong> I front-load the heaviest activity in Days 1-3 when name recognition builds fastest. It's short enough that Touch 1 is still remembered by Touch 7.</> },
+                      { accent: "#ffa94d", color: "rgba(255,169,77,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Multi-channel.</strong> I'm using three channels (email, LinkedIn, phone) so no single inbox gets saturated. Each one reinforces the others without repeating the same format.</> },
+                      { accent: "#63e6be", color: "rgba(99,230,190,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Cold call at Touch 3.</strong> John has seen my name twice. A call is the only touch that gets a yes or no in real time.</> },
+                      { accent: "#c8ff00", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>New information every touch.</strong> I move from gap framing → run analysis → competitive urgency (T-Mobile) → third-party proof (EliseAI) → value offer (custom model) → clean exit. I never make the same argument twice.</> },
+                      { accent: "#b197fc", color: "rgba(177,151,252,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Escalates, not repeats.</strong> I move from awareness to competitive pressure to proof to a direct offer. Each step raises the stakes without restating the pitch.</> },
+                      { accent: "#4dabf7", color: "rgba(77,171,247,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Breakup protects the relationship.</strong> I close professionally, leave the door open, and reinforce enterprise logos one last time.</> },
+                      { accent: "#ff6b6b", color: "rgba(255,107,107,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>12-day compressed timeline.</strong> I front-load the heaviest activity in Days 1-3 when name recognition builds fastest. It's short enough that Touch 1 is still remembered by Touch 7.</> },
                     ].map((d, i) => (
-                      <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                        <div style={{
-                          width: 30, height: 30, borderRadius: 8, background: d.color,
-                          display: "flex", alignItems: "center", justifyContent: "center",
-                          fontSize: 14, flexShrink: 0,
-                        }}>{d.icon}</div>
-                        <div style={{ fontSize: 13, color: "#aaa", lineHeight: 1.55, paddingTop: 4 }}>{d.text}</div>
+                      <div key={i} style={{
+                        paddingLeft: 14,
+                        borderLeft: `2px solid ${d.accent}`,
+                      }}>
+                        <div style={{ fontSize: 13, color: "#aaa", lineHeight: 1.55 }}>{d.text}</div>
                       </div>
                     ))}
                   </div>
@@ -449,12 +459,17 @@ export default function ElevenLabsATTPlaybook() {
                   marginBottom: 20, flexWrap: "wrap", gap: 10, flexShrink: 0,
                 }}>
                   <div style={{
-                    display: "inline-flex", alignItems: "center", gap: 8,
+                    display: "inline-flex", alignItems: "center", gap: 6,
                     padding: "6px 14px", borderRadius: 100,
                     background: ct.bg, color: ct.color, border: `1px solid ${ct.border}`,
                     fontSize: 11, fontWeight: 600, letterSpacing: "0.5px", textTransform: "uppercase",
                   }}>
-                    {ct.icon} {ct.label}
+                    <span style={{ display: "flex", alignItems: "center" }}>
+                      {current.type === "email" && <IconEmail size={12} color={ct.color} />}
+                      {current.type === "linkedin" && <IconLinkedIn size={12} color={ct.color} />}
+                      {current.type === "phone" && <IconPhone size={12} color={ct.color} />}
+                    </span>
+                    {ct.label}
                   </div>
                   <div style={{
                     fontSize: 11, fontWeight: 600, color: "#666",
