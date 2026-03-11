@@ -291,10 +291,10 @@ export default function ElevenLabsATTPlaybook() {
 
         {/* ── WHY THIS PERSON ── */}
         {activeSection === "person" && (
-          <div style={{ animation: "fadeUp 0.4s ease both" }}>
+          <div style={{ animation: "fadeUp 0.4s ease both", display: "flex", gap: 24, alignItems: "flex-start" }}>
             <div style={{
               background: "#1a1a1a", border: "1px solid #2a2a2a", borderRadius: 20,
-              padding: "36px 40px", position: "relative", overflow: "hidden", maxWidth: 720,
+              padding: "36px 40px", position: "relative", overflow: "hidden", flex: 1, minWidth: 0,
             }}>
               <div style={{
                 position: "absolute", top: 0, left: 0, right: 0, height: 3,
@@ -310,6 +310,16 @@ export default function ElevenLabsATTPlaybook() {
               <h3 style={{ fontSize: 24, fontWeight: 700, letterSpacing: "-0.5px", marginBottom: 4 }}>John C. Miller</h3>
               <div style={{ fontSize: 14, color: "#aaa", marginBottom: 28 }}>VP, Consumer & Retail Solutions — AT&T</div>
               <BulletList items={personPoints} />
+            </div>
+            <div style={{
+              flexShrink: 0, width: 300, borderRadius: 16, overflow: "hidden",
+              border: "1px solid #2a2a2a", background: "#1a1a1a",
+            }}>
+              <img
+                src="/john-miller-linkedin.png"
+                alt="John C. Miller — LinkedIn profile"
+                style={{ width: "100%", display: "block" }}
+              />
             </div>
           </div>
         )}
@@ -374,7 +384,7 @@ export default function ElevenLabsATTPlaybook() {
                     {[
                       { accent: "#ffa94d", color: "rgba(255,169,77,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Multi-channel.</strong> I'm using three channels (email, LinkedIn, phone) so no single inbox gets saturated. Each one reinforces the others without repeating the same format.</> },
                       { accent: "#63e6be", color: "rgba(99,230,190,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Cold call at Touch 3.</strong> John has seen my name twice. A call is the only touch that gets a yes or no in real time.</> },
-                      { accent: "#c8ff00", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>New information every touch.</strong> I move from gap framing → run analysis → competitive urgency (T-Mobile) → third-party proof (EliseAI) → value offer (custom model) → clean exit. I never make the same argument twice.</> },
+                      { accent: "#c8ff00", color: "rgba(200,255,0,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>New information every touch.</strong> I move from gap framing → competitive urgency (T-Mobile) → third-party proof (EliseAI) → value offer (custom model) → clean exit. I never make the same argument twice.</> },
                       { accent: "#b197fc", color: "rgba(177,151,252,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Escalates, not repeats.</strong> I move from awareness to competitive pressure to proof to a direct offer. Each step raises the stakes without restating the pitch.</> },
                       { accent: "#4dabf7", color: "rgba(77,171,247,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>Breakup protects the relationship.</strong> I close professionally, leave the door open, and reinforce enterprise logos one last time.</> },
                       { accent: "#ff6b6b", color: "rgba(255,107,107,0.08)", text: <><strong style={{ color: "#f5f5f5" }}>12-day compressed timeline.</strong> I front-load the heaviest activity in Days 1-3 when name recognition builds fastest. It's short enough that Touch 1 is still remembered by Touch 7.</> },
