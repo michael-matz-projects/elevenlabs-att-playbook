@@ -126,6 +126,7 @@ export default function ElevenLabsATTPlaybook() {
   const [activeSection, setActiveSection] = useState("person");
   const [loaded, setLoaded] = useState(false);
   const [showStrategy, setShowStrategy] = useState(false);
+  const [showLinkedIn, setShowLinkedIn] = useState(false);
 
   useEffect(() => { setLoaded(true); }, []);
 
@@ -291,10 +292,44 @@ export default function ElevenLabsATTPlaybook() {
 
         {/* ── WHY THIS PERSON ── */}
         {activeSection === "person" && (
-          <div style={{ animation: "fadeUp 0.4s ease both", display: "flex", gap: 24, alignItems: "flex-start" }}>
+          <div style={{ animation: "fadeUp 0.4s ease both" }}>
+
+            {/* LinkedIn Profile toggle */}
+            <div style={{ marginBottom: 24 }}>
+              <button
+                onClick={() => setShowLinkedIn(!showLinkedIn)}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 8,
+                  background: "transparent", border: "1px solid #2a2a2a", borderRadius: 10,
+                  padding: "8px 16px", cursor: "pointer", fontFamily: "inherit",
+                  color: "#888", fontSize: 12, fontWeight: 600, letterSpacing: "0.3px",
+                  transition: "all 0.2s ease",
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                  style={{ transform: showLinkedIn ? "rotate(90deg)" : "rotate(0deg)", transition: "transform 0.2s ease" }}
+                ><path d="m9 18 6-6-6-6"/></svg>
+                LinkedIn Profile
+              </button>
+
+              {showLinkedIn && (
+                <div style={{
+                  marginTop: 14, borderRadius: 14, overflow: "hidden",
+                  border: "1px solid #2a2a2a", background: "#1a1a1a",
+                  maxWidth: 480,
+                }}>
+                  <img
+                    src="/john-miller-linkedin.png"
+                    alt="John C. Miller — LinkedIn profile"
+                    style={{ width: "100%", display: "block" }}
+                  />
+                </div>
+              )}
+            </div>
+
             <div style={{
               background: "#1a1a1a", border: "1px solid #2a2a2a", borderRadius: 20,
-              padding: "36px 40px", position: "relative", overflow: "hidden", flex: 1, minWidth: 0,
+              padding: "36px 40px", position: "relative", overflow: "hidden", maxWidth: 720,
             }}>
               <div style={{
                 position: "absolute", top: 0, left: 0, right: 0, height: 3,
@@ -310,16 +345,6 @@ export default function ElevenLabsATTPlaybook() {
               <h3 style={{ fontSize: 24, fontWeight: 700, letterSpacing: "-0.5px", marginBottom: 4 }}>John C. Miller</h3>
               <div style={{ fontSize: 14, color: "#aaa", marginBottom: 28 }}>VP, Consumer & Retail Solutions — AT&T</div>
               <BulletList items={personPoints} />
-            </div>
-            <div style={{
-              flexShrink: 0, width: 300, borderRadius: 16, overflow: "hidden",
-              border: "1px solid #2a2a2a", background: "#1a1a1a",
-            }}>
-              <img
-                src="/john-miller-linkedin.png"
-                alt="John C. Miller — LinkedIn profile"
-                style={{ width: "100%", display: "block" }}
-              />
             </div>
           </div>
         )}
